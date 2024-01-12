@@ -16,7 +16,7 @@ class KNOX:
         self.root.iconbitmap("resoures\mainlogo.ico")
         self.root.config(bg="gray")
 
-        # -- User Status & CLOCK--
+        # -- User Status & CLOCK updated
         self.lbl_clock=Label(self.root, text = "Welcome to KNOX Inventory Management System\t\t Date: DD:MM:YYY\t\t Time: HH:MM:SS", font= ("times new roman", 15), bg="#00997a", fg="white")
         self.lbl_clock.place(x=0, y=0, relwidth=1, height=30)
 
