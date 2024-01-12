@@ -1,0 +1,47 @@
+import tkinter as tk
+import sqlite3
+import pandas as pd
+
+def export_data():
+    # Connect to your database
+    conn = sqlite3.connect('your_database.db')
+
+    # Write your query
+    query = "SELECT * FROM your_table"
+
+    # Use pandas to execute the query and export the data to an Excel file
+    df = pd.read_sql_query(query, conn)
+    df.to_excel('output.xlsx', index=False)
+
+    # Don't forget to close the connection
+    conn.close()
+
+# Create the tkinter window
+window = tk.Tk()
+window.title("Export Data App")
+
+# Add a button that calls the export_data function when clicked
+export_button = tk.Button(window, text="Export Data", command=export_data)
+export_button.pack()
+
+window.mainloop()
+
+
+import sqlite3
+import pandas as pd
+
+def export_data(self):
+    con = sqlite3.connect(database = r'knoxims.db')
+    cur = con.cursor()
+
+    cur.execute("SELECT * FROM employee")
+    rows = cur.fetchall()
+
+    # Convert the data to a pandas DataFrame
+    df = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
+
+    # Export the DataFrame to an Excel file
+    df.to_excel('employee_data.xlsx', index=False)
+
+    con.close()
+

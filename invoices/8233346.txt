@@ -1,0 +1,20 @@
+
+		KNOX Inventory System
+	 Phone No. 98000***, Nepal-0123
+=========================================
+Customer Name: Sujan
+Ph no. 9975411
+Bill No. 8233346 			 Date: 08/01/2024
+=========================================
+    Product Name 			QTY	Price
+=========================================
+        
+ BLACK AND DECKER A564TKF KITTEL 1.7LTR			2	Rs.598.0
+ CLICK BLUTOOTH SPEAKER 1052SP			1	Rs.399.0
+=========================================
+Bill Amount			Rs.997.0
+Discount-			Rs.49.85
+Net Pay			Rs.947.15
+=========================================
+
+        
