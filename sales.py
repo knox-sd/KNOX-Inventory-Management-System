@@ -3,6 +3,7 @@ from PIL import Image, ImageTk ##change jpng or other photos convert into png
 from tkinter import ttk, messagebox
 import sqlite3
 import os
+import tempfile
 # import pandas as pd
 # import openpyxl
 
@@ -17,6 +18,7 @@ class salesClass:
 
         self.invoice_list = []
         self.var_invoice = StringVar()
+        self.chk_print = 0
 
 
         ##Title
@@ -27,6 +29,7 @@ class salesClass:
 
         btn_search= Button(self.root, text="Search",command=self.search, font=("times new roman",15, "bold"), bg="green", fg="white", cursor="hand2").place(x=370, y=60, width=120, height=30)
         btn_clear= Button(self.root, text="Clear",command=self.clear, font=("times new roman",15, "bold"), bg="lightgray", fg="black", cursor="hand2").place(x=510, y=60, width=120, height=30)
+        btn_print= Button(self.root, text="Print",command=self.print, font=("times new roman",15, "bold"), bg="green", fg="white", cursor="hand2").place(x=680, y=510, width=120, height=30)
 
         ##Invoices List
         sales_Frame = Frame(self.root, bd=3, relief=RIDGE)
@@ -76,6 +79,7 @@ class salesClass:
             if i.split('.')[-1]=='txt':
                 self.Sales_List.insert(END, i)
                 self.invoice_list.append(i.split('.')[0]) ## add select invoice in invoice_list veriable(which made initial)
+        # self.chk_print = 1
         
     def get_data(self, ev):
         index_ = self.Sales_List.curselection()
@@ -101,6 +105,15 @@ class salesClass:
                 fp.close()  
             else:
                 messagebox.showerror("Error", "Invaild Invoice No.", parent = self.root)
+
+    def print(self):
+        if self.chk_print == 1:
+            messagebox.showinfo('Print', "Please wait while printing", parent = self.root)
+            new_file = tempfile.mktemp('.txt')
+            open(new_file, 'w').write(self.var_invoice.get('1.0', END))
+            os.startfile(new_file, 'print')
+        else:
+            messagebox.showerror('Print', "Please generate bill, to print the receipt", parent = self.root)
 
     def clear(self):
         self.show()
