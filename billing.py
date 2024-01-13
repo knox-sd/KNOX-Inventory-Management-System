@@ -3,6 +3,8 @@ from PIL import Image, ImageTk ##change jpng or other photos convert into png
 from tkinter import ttk, messagebox
 import time
 import sqlite3
+import os
+import tempfile
 
 class billClass:
     def __init__(self, root):
@@ -12,6 +14,7 @@ class billClass:
         self.root.iconbitmap("resoures\mainlogo.ico")
         self.root.config(bg="gray")
         self.cart_list=[] ## empty list to add items in cart
+        self.chk_print = 0
 
         # -- User Status & CLOCK--
         self.lbl_clock=Label(self.root, text = "Welcome to KNOX Inventory Management System\t\t Date: DD:MM:YYY\t\t Time: HH:MM:SS", font= ("times new roman", 15), bg="#00997a", fg="white")
@@ -228,7 +231,7 @@ class billClass:
         self.lbl_netpay = Label(bill_Menu_Frame, text='Net Pay\n[0]', font=("goudy old style", 14, "bold"), bg="#00997a", fg="white")
         self.lbl_netpay.place(x=235,y=6, width=120, height=60)
 
-        btn_print = Button(bill_Menu_Frame, text='Print', font=("goudy old style", 14, "bold"),cursor='hand2', bg="orange", fg="white")
+        btn_print = Button(bill_Menu_Frame, text='Print', command=self.print_bill, font=("goudy old style", 14, "bold"),cursor='hand2', bg="orange", fg="white")
         btn_print.place(x=2,y=75, width=120, height=50)
 
         btn_cler = Button(bill_Menu_Frame, text='Clear All',command=self.clear_all, font=("goudy old style", 14, "bold"),cursor='hand2', bg="gray", fg="white")
@@ -394,7 +397,7 @@ class billClass:
             fp.write(self.txt_bill.get('1.0', END))
             fp.close()
             messagebox.showinfo('Saved',"Bill has been generated/Saved", parent=self.root)
-
+            self.chk_print = 1
 
     def bill_top(self):
         self.invoice = int(time.strftime("%H%M%S")) + int(time.strftime("%d%m%Y"))
@@ -468,12 +471,22 @@ Net Pay\t\t\t    Rs.{self.net_pay}
         self.clear_cart()
         self.show()
         self.show_cart()
+        self.chk_print = 0
 
     def update_date_time(self):
         upd_time = time.strftime("%I:%M:%S %p %a")
         upd_date = time.strftime("%d-%m-%Y")
         self.lbl_clock.config(text = f"Welcome to KNOX Inventory Management System\t\t Date: {str(upd_date)}\t\t Time: {str(upd_time)}")
         self.lbl_clock.after(200,self.update_date_time)
+
+    def print_bill(self):
+        if self.chk_print == 1:
+            messagebox.showinfo('Print', "Please wait while printing", parent = self.root)
+            new_file = tempfile.mktemp('.txt')
+            open(new_file, 'w').write(self.txt_bill.get('1.0', END))
+            os.startfile(new_file, 'print')
+        else:
+            messagebox.showerror('Print', "Please generate bill, to print the receipt", parent = self.root)
 
 
 if __name__=="__main__":
