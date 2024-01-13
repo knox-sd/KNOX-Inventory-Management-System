@@ -470,7 +470,7 @@ Net Pay\t\t\t    Rs.{self.net_pay}
         self.show_cart()
 
     def update_date_time(self):
-        upd_time = time.strftime("%H:%M:%S")
+        upd_time = time.strftime("%I:%M:%S %p %a")
         upd_date = time.strftime("%d-%m-%Y")
         self.lbl_clock.config(text = f"Welcome to KNOX Inventory Management System\t\t Date: {str(upd_date)}\t\t Time: {str(upd_time)}")
         self.lbl_clock.after(200,self.update_date_time)
