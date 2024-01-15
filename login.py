@@ -24,7 +24,7 @@ class Login:
         txt_user = Entry(login_frame, textvariable=self.var_empid, font=("Arial", 10), bg="lightgray").place(x=80, y=30)
 
         lbl_passw = Label(login_frame, text="Password", font=("Arial", 10, "bold"), bg="white").place(x=2, y=60)
-        txt_passw = Entry(login_frame, textvariable=self.var_passw, font=("Arial", 10), bg="lightgray").place(x=80, y=60)
+        txt_passw = Entry(login_frame, textvariable=self.var_passw, show='*',font=("Arial", 10), bg="lightgray").place(x=80, y=60)
 
         btn_login = Button(login_frame, text="Login",command=self.Log_in, font=("calibri", 9), bd=2, bg="#A2D9CE", width=6).place(x=120, y=90)
         btn_cancel = Button(login_frame, text="Cancel",command=self.cancel_win, font=("calibri", 9), bd=2, bg="#A2D9CE", width=6).place(x=175, y=90)
