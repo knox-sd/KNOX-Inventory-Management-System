@@ -73,7 +73,6 @@ class empClass:
 
         txt_email = Entry(self.root, textvariable=self.var_email, font= ("Century Gothic", 15), bg="lightyellow").place(x=140, y=200, width=200)
         txt_pswd = Entry(self.root, textvariable=self.var_pass, font= ("Century Gothic", 15), bg="lightyellow").place(x=500, y=200, width=180)
-        # txt_utype = Entry(self.root, textvariable=self.var_utype, font= ("Century Gothic", 15), bg="lightyellow").place(x=850, y=200, width=180)
         cmb_utype = ttk.Combobox(self.root, textvariable=self.var_utype, values=("Admin", "Employee"), state='readonly', justify=CENTER, font=("Century Gothic", 12))
         cmb_utype.place(x=850, y=200, width=180)
         cmb_utype.current(0)

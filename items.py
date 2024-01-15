@@ -1,5 +1,4 @@
 from tkinter import *
-# from PIL import Image, ImageTk ##change jpng or other photos convert into png
 from tkinter import ttk, messagebox
 import sqlite3
 import pandas as pd
@@ -81,7 +80,6 @@ class itemClass: ## NEED TO ASSIGN SUPPLIER IN ITEM CODE
         txt_quantity= Entry(self.root, textvariable=self.var_item_qty, font=("Century Gothic", 12,), bg="lightyellow").place(x=180, y=470, width=300, height=30)
 
         lbl_status= Label(self.root, text="Status", font=("Century Gothic", 12, "bold"), bg="white").place(x=30, y=505)
-        # txt_supp = Entry(self.root, textvariable=self.var_item_barc, font=("Century Gothic", 12,), bg="lightyellow").place(x=180, y=445, width=300)
         cmb_status = ttk.Combobox(self.root, textvariable=self.var_item_status, values=("Active", "Inactive"), state='readonly', justify=LEFT, font=("Century Gothic", 12))
         cmb_status.place(x=180, y=505, width=300, height=30)
         cmb_status.current(0)

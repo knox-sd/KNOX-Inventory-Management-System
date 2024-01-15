@@ -1,5 +1,4 @@
 from tkinter import *
-# from PIL import Image, ImageTk ##change jpng or other photos convert into png
 from tkinter import ttk, messagebox
 import sqlite3
 import pandas as pd
@@ -41,9 +40,6 @@ class cusClass:
         lbl_supid = Label(self.root, text="Customer ID", font=("Century Gothic", 12, "bold"), bg="white").place(x=20, y=60)
         txt_supid = Entry(self.root, textvariable=self.var_cus_id, font=("Century Gothic", 12,), bg="lightyellow").place(x=170, y=60, width=350, height=30)
 
-        # cmb_supid = ttk.Combobox(self.root, textvariable=self.var_cus_id, values=self.cus_list, state='normal', justify=LEFT, height=200,width=200, font=("Century Gothic", 12))
-        # cmb_supid.place(x=170, y=60, width=350, height=30)
-        # # cmb_supid.current(0)
 
         lbl_name = Label(self.root, text="Customer Name", font=("Century Gothic", 12, "bold"), bg="white").place(x=20, y=100)
         txt_name = Entry(self.root, textvariable=self.var_cus_name, font=("Century Gothic", 12,), bg="lightyellow").place(x=170, y=100, width=350, height=30)
@@ -329,9 +325,6 @@ class cusClass:
         self.var_cus_swiftcode.set(""),
         self.txt_bnkadd.delete('1.0', END),
         self.var_cus_paymenterm.set("Select"),
-
-    #     self.var_searchby.set("Select")
-    #     self.var_searchtxt.set("Select")
 
         self.show()
 

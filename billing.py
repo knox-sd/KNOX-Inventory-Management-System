@@ -57,16 +57,7 @@ class billClass:
 
         self.items_Table.heading("item_code", text="Item Code")
         self.items_Table.heading("description", text= "Description") 
-        # self.items_Table.heading("division", text="Division")
-        # self.items_Table.heading("brand", text="Brand")
-        # self.items_Table.heading("product", text="Product")
-        # self.items_Table.heading("category", text="Category")
-        # self.items_Table.heading("subcategory", text= "Sub Category")
-        # self.items_Table.heading("size", text="Size")
-        # self.items_Table.heading("model",text="Model")
         self.items_Table.heading("price", text="Price") 
-        # self.items_Table.heading("barcode", text="Barcode")
-        # self.items_Table.heading("supplier", text="Supplier")
         self.items_Table.heading("quantity", text="QTY")        
         self.items_Table.heading("status", text="Status")
         self.items_Table["show"] = "headings"
@@ -74,16 +65,7 @@ class billClass:
         #filled size
         self.items_Table.column("item_code", width=100)
         self.items_Table.column("description", width=200) 
-        # self.items_Table.column("division", width=100)
-        # self.items_Table.column("brand", width=100)
-        # self.items_Table.column("product", width=100)
-        # self.items_Table.column("category", width=100)
-        # self.items_Table.column("subcategory", width=100)
-        # self.items_Table.column("size", width=100)
-        # self.items_Table.column("model", width=100)
         self.items_Table.column("price", width=70) 
-        # self.items_Table.column("barcode", width=100)
-        # self.items_Table.column("supplier", width=100)
         self.items_Table.column("quantity", width=50)         
         self.items_Table.column("status", width=70)
 
@@ -154,7 +136,6 @@ class billClass:
 
         ## Add field into Cart_Frame
         self.cart_Table = ttk.Treeview(CartFrame, columns=("item_code", "description", "price", "quantity"),yscrollcommand = scrolly.set, xscrollcommand = scrollx.set)
-        # self.cart_Table = ttk.Treeview(CartFrame, columns=("item_code", "description", "division", "brand", "product", "category", "subcategory", "size", "model", "price", "barcode", "supplier", "quantity", "status"), yscrollcommand = scrolly.set, xscrollcommand = scrollx.set)
         scrollx.pack(side=BOTTOM, fill=X)
         scrolly.pack(side=RIGHT, fill=Y)
         scrollx.config(command=self.cart_Table.xview)
@@ -204,7 +185,6 @@ class billClass:
         btn_clear_cart = Button(Add_cartwidgets_Frame, text="Clear",command=self.clear_cart, font=("times new roman", 15, "bold"), bg="lightgray", cursor="hand2").place(x=210, y=63, height=29, width=100)
         btn_add_cart = Button(Add_cartwidgets_Frame, text="Add | Update Cart",command=self.add_update_cart, font=("times new roman", 15, "bold"), bg="orange", cursor="hand2").place(x=320, y=63, height=29, width=190)
 
-        # self.get_data()
 
         ###Billing Area
         billFrame= Frame(self.root, bd=2, relief=RIDGE, bg="white")

@@ -1,5 +1,4 @@
 from tkinter import *
-# from PIL import Image, ImageTk ##change jpng or other photos convert into png
 from tkinter import ttk, messagebox
 import sqlite3
 import pandas as pd
