@@ -30,7 +30,7 @@ class Login:
         btn_cancel = Button(login_frame, text="Cancel",command=self.cancel_win, font=("calibri", 9), bd=2, bg="#A2D9CE", width=6).place(x=175, y=90)
 
 
-    def Log_in(self):
+    def Log_in(self): ## connect database to extract ID and Password
         con = sqlite3.connect(database = r'knoxims.db')
         cur = con.cursor()
         try:
