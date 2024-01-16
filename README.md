@@ -3,14 +3,14 @@ Language - Python 🐍 using Tkinter library.
 
 Project Concept >>>
 KNOX Inventory Management System is a Complete Inventory or Shop Management software. where user can do follows things.
-- Billing - Completed ✅
 - Add employee records along with all details - Completed ✅
 - Create new items with all products details - Completed ✅
 - Create new supplier and customers - Completed ✅
+- Billing - Completed ✅
+- Promotion Activity - under progress🕐
 - Inventory (Stock, Aging stock, PSI Report) - under progress🕐
 - Purchasing Order & Received the items.- under progress🕐
 - Update Price List (Customer and Suppliers) - under progress🕐
-- Promotion Activity - under progress🕐
 - Generate Sales Report - under progress🕐
 - Accounting - under progress🕐
 
