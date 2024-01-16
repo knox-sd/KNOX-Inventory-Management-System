@@ -3,7 +3,7 @@ from tkinter import ttk, messagebox
 import sqlite3
 import os
 
-class Login:
+class Log_in:
     def __init__(self, root):
         self.root = root
         self.root.geometry("265x160+550+300")
@@ -29,6 +29,7 @@ class Login:
         btn_login = Button(login_frame, text="Login",command=self.Log_in, font=("calibri", 9), bd=2, bg="#A2D9CE", width=6).place(x=120, y=90)
         btn_cancel = Button(login_frame, text="Cancel",command=self.cancel_win, font=("calibri", 9), bd=2, bg="#A2D9CE", width=6).place(x=175, y=90)
 
+        btn_forget = Button(login_frame, text="Forget Password?", font=("times new roman", 8), bg="white", fg="blue", bd=0, activebackground="white", activeforeground="blue").place(x=140,y=122)
 
     def Log_in(self): ## connect database to extract ID and Password
         con = sqlite3.connect(database = r'knoxims.db')
@@ -49,8 +50,8 @@ class Login:
                     else:
                         self.root.destroy()
                         os.system("python billing.py")
-                    
-                    
+
+
         except Exception as ex:
             messagebox.showerror("Error", f"Erorr due to : {str(ex)}",  parent = self.root)
         con.close()
@@ -66,5 +67,5 @@ class Login:
 
 if __name__=="__main__":
     root=Tk()
-    obj = Login(root)
+    obj = Log_in(root)
     root.mainloop()

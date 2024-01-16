@@ -29,6 +29,7 @@ class KNOX:
         
         # self.update_content()
         self.update_date_time()
+        
         #Menu list
         my_menu = Menu(self.root)
         self.root.config(menu=my_menu)  # Corrected here
@@ -83,7 +84,7 @@ class KNOX:
 
         master_menu = Menu(my_menu, tearoff="off")
         my_menu.add_cascade(label = "Master Lists", menu=master_menu)
-        master_menu.add_command(label="Promotions")
+        master_menu.add_command(label="Promotions Activity")
         master_menu.add_command(label="Customer Price List")
         master_menu.add_command(label="Supplier Price List")
         master_menu.add_command(label="All Reports")
@@ -97,23 +98,23 @@ class KNOX:
 
 
         ## Content
-        self.lbl_employee=Label(self.root, text = "Total Employee\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
-        self.lbl_employee.place(x=150, y=150, height=150, width=300)
+        # self.lbl_employee=Label(self.root, text = "Total Employee\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
+        # self.lbl_employee.place(x=150, y=150, height=150, width=300)
         
-        self.lbl_supplier=Label(self.root, text = "Total Supplier\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
-        self.lbl_supplier.place(x=500, y=150, height=150, width=300)
+        # self.lbl_supplier=Label(self.root, text = "Total Supplier\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
+        # self.lbl_supplier.place(x=500, y=150, height=150, width=300)
 
-        self.lbl_category=Label(self.root, text = "Total Category\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
-        self.lbl_category.place(x=850, y=150, height=150, width=300)
+        # self.lbl_category=Label(self.root, text = "Total Category\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
+        # self.lbl_category.place(x=850, y=150, height=150, width=300)
 
-        self.lbl_Product=Label(self.root, text = "Total Product\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
-        self.lbl_Product.place(x=150, y=350, height=150, width=300)
+        # self.lbl_Product=Label(self.root, text = "Total Product\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
+        # self.lbl_Product.place(x=150, y=350, height=150, width=300)
         
-        self.lbl_sales=Label(self.root, text = "Total Sales Transaction\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
-        self.lbl_sales.place(x=500, y=350, height=150, width=300)
+        # self.lbl_sales=Label(self.root, text = "Total Sales Transaction\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
+        # self.lbl_sales.place(x=500, y=350, height=150, width=300)
 
-        self.lbl_inventory=Label(self.root, text = "Total Inventory\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
-        self.lbl_inventory.place(x=850, y=350, height=150, width=300)
+        # self.lbl_inventory=Label(self.root, text = "Total Inventory\n[ 0 ]",bd = 5, relief=RIDGE, font= ("times new roman", 18, "bold"), bg="#00997a", fg="white")
+        # self.lbl_inventory.place(x=850, y=350, height=150, width=300)
 
 
 
@@ -149,25 +150,28 @@ class KNOX:
         self.lbl_clock.config(text = f"Welcome to KNOX Inventory Management System\t\t Date: {str(upd_date)}\t\t Time: {str(upd_time)}")
         self.lbl_clock.after(200,self.update_date_time)
 
-    def update_content(self):
-        con = sqlite3.connect(database = r'knoxims.db')
-        cur = con.cursor()
-        try:
-            cur.execute("select * from employee")
-            emp = cur.fetchall()
-            self.lbl_employee.config(text=f'Total Employee\n[ {str(len(emp))} ]')
+    # def update_userID(self):
+    #     current_user_id = self.
+    
+    # def update_content(self):
+    #     con = sqlite3.connect(database = r'knoxims.db')
+    #     cur = con.cursor()
+    #     try:
+    #         cur.execute("select * from employee")
+    #         emp = cur.fetchall()
+    #         self.lbl_employee.config(text=f'Total Employee\n[ {str(len(emp))} ]')
 
-            cur.execute("select * from supplier")
-            supp = cur.fetchall()
-            self.lbl_supplier.config(text=f'Total Supplier\n[ {str(len(supp))} ]')
-            # print(emp)
-            bill=len(os.listdir('invoices'))
-            self.lbl_sales.config(text=f'Total Sales Transactio \n[ {str(bill)} ]')
-            self.lbl_sales.after(200,self.update_content)
+    #         cur.execute("select * from supplier")
+    #         supp = cur.fetchall()
+    #         self.lbl_supplier.config(text=f'Total Supplier\n[ {str(len(supp))} ]')
+    #         # print(emp)
+    #         bill=len(os.listdir('invoices'))
+    #         self.lbl_sales.config(text=f'Total Sales Transactio \n[ {str(bill)} ]')
+    #         self.lbl_sales.after(200,self.update_content)
 
-        except Exception as ex:
-            messagebox.showerror("Error", f"Erorr due to : {str(ex)}",  parent = self.root)
-        con.close()
+    #     except Exception as ex:
+    #         messagebox.showerror("Error", f"Erorr due to : {str(ex)}",  parent = self.root)
+    #     con.close()
 
     def logout(self):
         self.root.destroy()
@@ -185,5 +189,5 @@ class KNOX:
 if __name__=="__main__":
     root=Tk()
     obj = KNOX(root)
-    obj.update_content()
+    # obj.update_content()
     root.mainloop()
