@@ -56,10 +56,10 @@ class Log_in:
             messagebox.showerror("Error", f"Erorr due to : {str(ex)}",  parent = self.root)
         con.close()
 
-    def forget_window(self):
-        if self.var_empid.get() == "":
-            pass
-##23 min
+#     def forget_window(self):
+#         if self.var_empid.get() == "":
+#             pass
+# ##23 min
 
     def cancel_win(self):
         self.root.destroy()

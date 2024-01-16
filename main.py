@@ -7,6 +7,7 @@ from customer import cusClass
 from items import itemClass
 from sales import salesClass
 from billing import billClass
+from creditnote import creditnoteClass
 import sqlite3
 from tkinter import messagebox
 import os
@@ -84,7 +85,7 @@ class KNOX:
 
         master_menu = Menu(my_menu, tearoff="off")
         my_menu.add_cascade(label = "Master Lists", menu=master_menu)
-        master_menu.add_command(label="Promotions Activity")
+        master_menu.add_command(label="Promotion | Credit Note", command=self.creditnote)
         master_menu.add_command(label="Customer Price List")
         master_menu.add_command(label="Supplier Price List")
         master_menu.add_command(label="All Reports")
@@ -143,6 +144,11 @@ class KNOX:
     def billing(self):
         self.new_win = Toplevel(self.root)
         self.new_obj = billClass(self.new_win)
+
+    def creditnote(self):
+        self.new_win = Toplevel(self.root)
+        self.new_obj = creditnoteClass(self.new_win)
+
 
     def update_date_time(self):
         upd_time = time.strftime("%I:%M:%S %p %a")
